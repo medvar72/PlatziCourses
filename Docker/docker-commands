@@ -29,3 +29,4 @@ $ docker logs proxy (veo los logs)
 $ docker logs -f proxy (hago un follow del log)
 $ docker logs --tail 10 -f proxy (veo y sigo solo las 10 últimas entradas del log)
 
+docker run -d --name db_mongo -v /home/hector/Dropbox/Platzi/Docker/dockerdata/mongodata:/data/db mongo (Bind Mount)
