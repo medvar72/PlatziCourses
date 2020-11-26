@@ -1,0 +1,31 @@
+$ docker run hello-world (corro el contenedor hello-world)
+$ docker ps (muestra los contenedores activos)
+$ docker ps -a (muestra todos los contenedores)
+$ docker inspect <containe ID> (muestra el detalle completo de un contenedor)
+$ docker inspect <name> (igual que el anterior pero invocado con el nombre)
+$ docker run –-name hello-platzi hello-world (le asigno un nombre custom “hello-platzi”)
+$ docker rename hello-platzi hola-platzy (cambio el nombre de hello-platzi a hola-platzi)
+$ docker rm <ID o nombre> (borro un contenedor)
+$ docker container prune (borro todos lo contenedores que esten parados)
+$ docker run ubuntu (corre un ubuntu pero lo deja apagado)
+$ docker ps -a (lista todos los contenedores)
+$ docker -it ubuntu (lo corre y entro al shell de ubuntu)
+-i: interactivo
+-t: abre la consola
+docker stop <container_id or container_name>
+
+
+cat /etc/lsb-release (veo la versión de Linux)
+
+Comandos:
+
+$ docker run -d --name proxy nginx (corro un nginx)
+$ docker stop proxy (apaga el contenedor)
+$ docker rm proxy (borro el contenedor)
+$ docker rm -f <contenedor> (lo para y lo borra)
+$ docker run -d --name proxy -p 8080:80 nginx (corro un nginx y expongo el puerto 80 del contenedor en el puerto 8080 de mi máquina)
+localhost:8080 (desde mi navegador compruebo que funcione)
+$ docker logs proxy (veo los logs)
+$ docker logs -f proxy (hago un follow del log)
+$ docker logs --tail 10 -f proxy (veo y sigo solo las 10 últimas entradas del log)
+
