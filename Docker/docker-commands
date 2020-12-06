@@ -82,3 +82,22 @@ $ docker run -it ubuntu:platzi (corro el contenedor con la nueva imagen)
 $ docker login (me logueo en docker hub)
 $ docker tag ubuntu:platzi miusuario/ubuntu:platzy (cambio el tag para poder subirla a mi docker hub)
 $ docker push miusuario/ubuntu:platzi (publico la imagen a mi docker hub)
+
+#Docker para desarrollo de aplicaciones
+Comandos:
+
+$ git clone https://github.com/platzi/docker
+$ docker build platziapp . (creo la imagen local)
+$ docker image ls (listo las imagenes locales)
+$ docker run --rm -p 3000:3000 platziapp (creo el contenedor y cuando se detenga se borra, lo publica el puerto 3000)
+$ docker ps (veo los contenedores activos)
+
+##Instalar Mongo en otro contenedor y conectar el de la app con el del mongodb
+## Docker networking: colaboración entre contenedores
+$ docker network ls (listo las redes)
+$ docker network create --atachable plazinet (creo la red)
+$ docker inspect plazinet (veo toda la definición de la red creada)
+$ docker run -d --name db mongo (creo el contenedor de la BBDD)
+$ docker network connect plazinet db (conecto el contenedor “db” a la red “platzinet”)
+$ docker run -d -name app -p 3000:3000 --env MONGO_URL=mondodb://db:27017/test platzi (corro el contenedor “app” y le paso una variable)
+$ docker network connect plazinet app (conecto el contenedor “app” a la red “plazinet”)
